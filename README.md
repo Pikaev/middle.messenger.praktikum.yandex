@@ -83,4 +83,8 @@ README — первое, что прочитает пользователь, к�
 - «[ТДенгине](https://github.com/taosdata/TDengine)»,
 - «[Соул-хантинг](https://github.com/vladpereskokov/soul-hunting/)».
 
-New line
+## **Ссылки**
+
+### **На веб-приложение**
+
+Netlify: https://pickchat.netlify.app/
