@@ -3,8 +3,10 @@ import * as Pages from "./pages";
 
 // Register partials
 import Input from "./components/Input.js";
+import Link from "./components/Link.js";
 
 Handlebars.registerPartial("Input", Input);
+Handlebars.registerPartial("Link", Link);
 export default class App {
   constructor() {
     this.state = {
