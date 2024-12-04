@@ -8,7 +8,7 @@ Handlebars.registerPartial("Input", Input);
 export default class App {
   constructor() {
     this.state = {
-      currentPage: "auth",
+      currentPage: "notFound",
       anyArray: [],
     };
     this.appElement = document.getElementById("app");
@@ -18,6 +18,9 @@ export default class App {
     let template;
     if (this.state.currentPage === "auth") {
       template = Handlebars.compile(Pages.AuthPage);
+      this.appElement.innerHTML = template();
+    } else if (this.state.currentPage === "notFound") {
+      template = Handlebars.compile(Pages.NotFoundPage);
       this.appElement.innerHTML = template();
     }
   }
