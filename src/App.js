@@ -10,7 +10,7 @@ Handlebars.registerPartial("Link", Link);
 export default class App {
   constructor() {
     this.state = {
-      currentPage: "notFound",
+      currentPage: "error",
       anyArray: [],
     };
     this.appElement = document.getElementById("app");
@@ -23,6 +23,9 @@ export default class App {
       this.appElement.innerHTML = template();
     } else if (this.state.currentPage === "notFound") {
       template = Handlebars.compile(Pages.NotFoundPage);
+      this.appElement.innerHTML = template();
+    } else if (this.state.currentPage === "error") {
+      template = Handlebars.compile(Pages.ErrorPage);
       this.appElement.innerHTML = template();
     }
   }
