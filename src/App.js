@@ -2,15 +2,18 @@ import Handlebars from "handlebars";
 import * as Pages from "./pages";
 
 // Register partials
+import Button from "./components/Button.js";
 import Input from "./components/Input.js";
 import Link from "./components/Link.js";
 
+Handlebars.registerPartial("Button", Button);
 Handlebars.registerPartial("Input", Input);
 Handlebars.registerPartial("Link", Link);
+
 export default class App {
   constructor() {
     this.state = {
-      currentPage: "error",
+      currentPage: "auth",
       anyArray: [],
     };
     this.appElement = document.getElementById("app");
