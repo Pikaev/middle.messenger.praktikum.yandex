@@ -5,3 +5,6 @@ export { RegisterPage } from "./authPage";
 // Страницы ошибок
 export { ErrorPage } from "./errorPage";
 export { NotFoundPage } from "./notFoundPage";
+
+// Страница настроек пользователя
+export { UserSettingsPage } from "./userSettingsPage";

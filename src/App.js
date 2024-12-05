@@ -13,7 +13,7 @@ Handlebars.registerPartial("Link", Link);
 export default class App {
   constructor() {
     this.state = {
-      currentPage: "register",
+      currentPage: "userSettings",
       anyArray: [],
     };
     this.appElement = document.getElementById("app");
@@ -32,6 +32,9 @@ export default class App {
       this.appElement.innerHTML = template();
     } else if (this.state.currentPage === "error") {
       template = Handlebars.compile(Pages.ErrorPage);
+      this.appElement.innerHTML = template();
+    } else if (this.state.currentPage === "userSettings") {
+      template = Handlebars.compile(Pages.UserSettingsPage);
       this.appElement.innerHTML = template();
     }
   }
