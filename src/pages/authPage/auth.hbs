@@ -1,4 +1,21 @@
 <div class="app">
-  <h1>Тестовая авторизация</h1>
-  {{> Input type="text" name="username" placeholder="Username"}}
+  <section class="auth">
+    <div class="auth__container">
+      <h1 class="auth__title">Вход</h1>
+      <form class="auth__form" action="" method="get">
+        <div class="auth__form-items">
+          <div class="auth__form-item">
+            <label for="username" class="auth__form-item-label">Логин</label>
+            {{> Input type="text" name="username" placeholder="Username" class="auth__form-item-input"}}
+          </div>
+          <div class="auth__form-item">
+            <label for="password" class="auth__form-item-label">Пароль</label>
+            {{> Input type="password" name="password" placeholder="Password" class="auth__form-item-input"}}
+          </div>
+        </div>
+        {{> Button text="Авторизоваться" id="login-button" class="auth__button"}}
+        {{> Link text="Нет аккаунта?" href="/register" id="register-link" class="auth__link"}}
+      </form>
+    </div>
+  </section>
 </div>
