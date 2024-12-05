@@ -1,0 +1,41 @@
+<div class="app">
+  <section class="auth">
+    <div class="auth__container">
+      <h1 class="auth__title">Регистрация</h1>
+      <form class="auth__form" action="" method="get">
+        <div class="auth__form-items">
+          <div class="auth__form-item">
+            <label for="email" class="auth__form-item-label">Почта</label>
+            {{> Input type="text" name="email" placeholder="Email" class="auth__form-item-input"}}
+          </div>
+          <div class="auth__form-item">
+            <label for="login" class="auth__form-item-label">Логин</label>
+            {{> Input type="text" name="login" placeholder="Login" class="auth__form-item-input"}}
+          </div>
+          <div class="auth__form-item">
+            <label for="first_name" class="auth__form-item-label">Имя</label>
+            {{> Input type="text" name="first_name" placeholder="First name" class="auth__form-item-input"}}
+          </div>
+          <div class="auth__form-item">
+            <label for="second_name" class="auth__form-item-label">Фамилия</label>
+            {{> Input type="text" name="second_name" placeholder="Second name" class="auth__form-item-input"}}
+          </div>
+          <div class="auth__form-item">
+            <label for="phone" class="auth__form-item-label">Телефон</label>
+            {{> Input type="text" name="phone" placeholder="Phone" class="auth__form-item-input"}}
+          </div>
+          <div class="auth__form-item">
+            <label for="password" class="auth__form-item-label">Пароль</label>
+            {{> Input type="password" name="password" placeholder="Password" class="auth__form-item-input"}}
+          </div>
+          <div class="auth__form-item">
+            <label for="password_confirm" class="auth__form-item-label">Пароль (ещё раз)</label>
+            {{> Input type="password" name="password_confirm" placeholder="Password" class="auth__form-item-input"}}
+          </div>
+        </div>
+        {{> Button text="Зарегистрироваться" id="register-button" class="auth__button"}}
+        {{> Link text="Войти" href="/login" id="login-link" class="auth__link"}}
+      </form>
+    </div>
+  </section>
+</div>

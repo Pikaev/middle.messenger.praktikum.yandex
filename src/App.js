@@ -13,7 +13,7 @@ Handlebars.registerPartial("Link", Link);
 export default class App {
   constructor() {
     this.state = {
-      currentPage: "auth",
+      currentPage: "register",
       anyArray: [],
     };
     this.appElement = document.getElementById("app");
@@ -21,8 +21,11 @@ export default class App {
 
   render() {
     let template;
-    if (this.state.currentPage === "auth") {
-      template = Handlebars.compile(Pages.AuthPage);
+    if (this.state.currentPage === "login") {
+      template = Handlebars.compile(Pages.LoginPage);
+      this.appElement.innerHTML = template();
+    } else if (this.state.currentPage === "register") {
+      template = Handlebars.compile(Pages.RegisterPage);
       this.appElement.innerHTML = template();
     } else if (this.state.currentPage === "notFound") {
       template = Handlebars.compile(Pages.NotFoundPage);
