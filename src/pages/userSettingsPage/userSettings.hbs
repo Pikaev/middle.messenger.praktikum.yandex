@@ -1,12 +1,55 @@
 <div class="app">
   <section class="userSettings">
-    <img src="" alt="" class="userSettings__avatar" />
-    <span class="material-icons">
-      face
-    </span>
+    <span class="material-icons userSettings__avatar">face</span>
     <h1 class="userSettings__title">Брюс</h1>
-    <div>
-
+    <div class="userSettings__info">
+      <div class="userSettings__infoBlock">
+        <div class="userSettings__row">
+          <span class="userSettings__label">Почта</span>
+          <span class="userSettings__value">pochta@yandex.ru</span>
+        </div>
+        <div class="userSettings__row">
+          <span class="userSettings__label">Логин</span>
+          <span class="userSettings__value">bryusbryusov</span>
+        </div>
+        <div class="userSettings__row">
+          <span class="userSettings__label">Имя</span>
+          <span class="userSettings__value">Брюс</span>
+        </div>
+        <div class="userSettings__row">
+          <span class="userSettings__label">Фамилия</span>
+          <span class="userSettings__value">Брюсов</span>
+        </div>
+        <div class="userSettings__row">
+          <span class="userSettings__label">Имя в чате</span>
+          <span class="userSettings__value">Брюс</span>
+        </div>
+        <div class="userSettings__row">
+          <span class="userSettings__label">Телефон</span>
+          <span class="userSettings__value">+7 (900) 123-45-67</span>
+        </div>
+      </div>
+      <div class="userSettings__actions">
+        <div class="userSettings__actionEdit">
+          {{> Link
+            href="/"
+            text="Изменить данные"
+            class="userSettings__actionEditLink"
+            data-page="userSettings"
+          }}
+        </div>
+        <div class="userSettings__actionEdit">
+          {{> Link
+            href="/"
+            text="Изменить пароль"
+            class="userSettings__actionEditLink"
+            data-page="userSettings"
+          }}
+        </div>
+        <div class="userSettings__actionLogout">
+          {{> Button text="Выйти" class="userSettings__actionLogoutBtn" }}
+        </div>
+      </div>
     </div>
   </section>
 </div>
