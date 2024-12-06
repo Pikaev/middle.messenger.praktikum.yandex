@@ -1,6 +1,6 @@
-<div class="app">
+<main class="app">
   <section class="chats">
-    <nav class="chats__contacts">
+    <div class="chats__contacts">
       <div class="chats__contactsHeader">
         <div class="chats__contactsMyProfile"> 
           {{> Link text="Профиль >" href="/profile" data-page="userSettings" class="chats__contactsMyProfileLink navLink"}}
@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="chats__contactsList">
-        <div class="chats__contact">
+        <article class="chats__contact">
           <div class="chats__contactWrapper">
             <div class="chats__contactAvatar">
               <span class="material-icons chats__contactAvatarIcon">person</span>
@@ -20,8 +20,8 @@
                 <div class="chats__contactMessage">Привет</div>
             </div>
           </div>
-        </div>
-        <div class="chats__contact">
+        </article>
+        <article class="chats__contact">
           <div class="chats__contactWrapper">
             <div class="chats__contactAvatar">
               <span class="material-icons chats__contactAvatarIcon">person</span>
@@ -31,8 +31,8 @@
                 <div class="chats__contactMessage">Привет. Овсянка с кабачковой</div>
             </div>
           </div>
-        </div>
-        <div class="chats__contact">
+        </article>
+        <article class="chats__contact">
           <div class="chats__contactWrapper">
             <div class="chats__contactAvatar">
               <span class="material-icons chats__contactAvatarIcon">group</span>
@@ -42,11 +42,11 @@
                 <div class="chats__contactMessage">до 25</div>
             </div>
           </div>
-        </div>
+        </article>
       </div>
-    </nav>
+    </div>
     <div class="chats__dialog">
       <p class="chats__dialogInfo">Выберите чат, чтобы отправить сообщение</p>
     </div>
   </section>
-</div>
+</main>
