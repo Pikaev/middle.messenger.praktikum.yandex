@@ -1,5 +1,52 @@
 <div class="app">
   <section class="chats">
-    <h1 class="chats__title">Чаты</h1>
+    <nav class="chats__contacts">
+      <div class="chats__contactsHeader">
+        <div class="chats__contactsMyProfile"> 
+          {{> Link text="Профиль >" href="/profile" data-page="profile" class="chats__contactsMyProfileLink"}}
+        </div>
+        <div class="chats__contactsSearch">
+          {{> Input id="search" type="text" placeholder="Поиск" class="chats__contactsSearchInput"}}
+        </div>
+      </div>
+      <div class="chats__contactsList">
+        <div class="chats__contact">
+          <div class="chats__contactWrapper">
+            <div class="chats__contactAvatar">
+              <span class="material-icons chats__contactAvatarIcon">person</span>
+            </div>
+            <div class="chats__contactInfo">
+                <div class="chats__contactName">Иван</div>
+                <div class="chats__contactMessage">Привет</div>
+            </div>
+          </div>
+        </div>
+        <div class="chats__contact">
+          <div class="chats__contactWrapper">
+            <div class="chats__contactAvatar">
+              <span class="material-icons chats__contactAvatarIcon">person</span>
+            </div>
+            <div class="chats__contactInfo">
+                <div class="chats__contactName">Марья</div>
+                <div class="chats__contactMessage">Привет. Овсянка с кабачковой</div>
+            </div>
+          </div>
+        </div>
+        <div class="chats__contact">
+          <div class="chats__contactWrapper">
+            <div class="chats__contactAvatar">
+              <span class="material-icons chats__contactAvatarIcon">group</span>
+            </div>
+            <div class="chats__contactInfo">
+                <div class="chats__contactName">Счётчики</div>
+                <div class="chats__contactMessage">до 25</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="chats__dialog">
+      <p class="chats__dialogInfo">Выберите чат, чтобы отправить сообщение</p>
+    </div>
   </section>
 </div>

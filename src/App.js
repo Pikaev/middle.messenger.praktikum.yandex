@@ -13,7 +13,7 @@ Handlebars.registerPartial("Link", Link);
 export default class App {
   constructor() {
     this.state = {
-      currentPage: "chats",
+      currentPage: "login",
       anyArray: [],
     };
     this.appElement = document.getElementById("app");
