@@ -48,26 +48,18 @@ export default class App {
   }
 
   render() {
-    let template;
-    if (this.state.currentPage === "login") {
-      template = Handlebars.compile(Pages.LoginPage);
-      this.appElement.innerHTML = template();
-    } else if (this.state.currentPage === "register") {
-      template = Handlebars.compile(Pages.RegisterPage);
-      this.appElement.innerHTML = template();
-    } else if (this.state.currentPage === "notFound") {
-      template = Handlebars.compile(Pages.NotFoundPage);
-      this.appElement.innerHTML = template();
-    } else if (this.state.currentPage === "error") {
-      template = Handlebars.compile(Pages.ErrorPage);
-      this.appElement.innerHTML = template();
-    } else if (this.state.currentPage === "userSettings") {
-      template = Handlebars.compile(Pages.UserSettingsPage);
-      this.appElement.innerHTML = template();
-    } else if (this.state.currentPage === "chats") {
-      template = Handlebars.compile(Pages.ChatsPage);
-      this.appElement.innerHTML = template();
-    }
+    const pageTemplates = {
+      login: Pages.LoginPage,
+      register: Pages.RegisterPage,
+      notFound: Pages.NotFoundPage,
+      error: Pages.ErrorPage,
+      userSettings: Pages.UserSettingsPage,
+      chats: Pages.ChatsPage,
+    };
+    const templateElement =
+      pageTemplates[this.state.currentPage] || Pages.NotFoundPage;
+    const template = Handlebars.compile(templateElement);
+    this.appElement.innerHTML = template();
     this.attachEventListeners();
   }
 
