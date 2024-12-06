@@ -4,30 +4,12 @@
     <h1 class="userSettings__title">Брюс</h1>
     <div class="userSettings__info">
       <form class="userSettings__infoBlock" action="" method="get">
-        <div class="userSettings__row">
-          <label for="email" class="userSettings__label">Почта</label>
-          {{> Input id="email" type="text" name="email" placeholder="pochta@yandex.ru" class="userSettings__value"}}
-        </div>
-        <div class="userSettings__row">
-          <label for="login" class="userSettings__label">Логин</label>
-          {{> Input id="login" type="text" name="login" placeholder="bryusbryusov" class="userSettings__value"}}
-        </div>
-        <div class="userSettings__row">
-          <label for="first_name" class="userSettings__label">Имя</label>
-          {{> Input id="first_name" type="text" name="first_name" placeholder="Брюс" class="userSettings__value"}}
-        </div>
-        <div class="userSettings__row">
-          <label for="second_name" class="userSettings__label">Фамилия</label>
-          {{> Input id="second_name" type="text" name="second_name" placeholder="Брюсов" class="userSettings__value"}}
-        </div>
-        <div class="userSettings__row">
-          <label for="display_name" class="userSettings__label">Имя в чате</label>
-          {{> Input id="display_name" type="text" name="display_name" placeholder="Брюс" class="userSettings__value"}}
-        </div>
-        <div class="userSettings__row">
-          <label for="phone" class="userSettings__label">Телефон</label>
-          {{> Input id="phone" type="text" name="phone" placeholder="+7 (900) 123-45-67" class="userSettings__value"}}
-        </div>
+        {{#each userSettingsFields}}
+          <div class="userSettings__row">
+            <label for="{{id}}" class="userSettings__label">{{label}}</label>
+            {{> Input id=id type=type name=name placeholder=placeholder class="userSettings__value"}}
+          </div>
+        {{/each}}
         <div class="userSettings__saveBtnContainer">
           {{> Button text="Сохранить" class="userSettings__saveBtn"}}
         </div>

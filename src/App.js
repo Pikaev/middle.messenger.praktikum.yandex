@@ -1,5 +1,6 @@
 import Handlebars from "handlebars";
 import * as Pages from "./pages";
+import { userSettingsFields } from "./mockData.js";
 
 // Register partials
 import Button from "./components/Button.js";
@@ -59,7 +60,7 @@ export default class App {
     const templateElement =
       pageTemplates[this.state.currentPage] || Pages.NotFoundPage;
     const template = Handlebars.compile(templateElement);
-    this.appElement.innerHTML = template();
+    this.appElement.innerHTML = template({ userSettingsFields });
     this.attachEventListeners();
   }
 
