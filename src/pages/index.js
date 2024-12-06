@@ -8,3 +8,6 @@ export { NotFoundPage } from "./notFoundPage";
 
 // Страница настроек пользователя
 export { UserSettingsPage } from "./userSettingsPage";
+
+// Страница чатов
+export { ChatsPage } from "./chatsPage";

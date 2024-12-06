@@ -13,7 +13,7 @@ Handlebars.registerPartial("Link", Link);
 export default class App {
   constructor() {
     this.state = {
-      currentPage: "userSettings",
+      currentPage: "chats",
       anyArray: [],
     };
     this.appElement = document.getElementById("app");
@@ -35,6 +35,9 @@ export default class App {
       this.appElement.innerHTML = template();
     } else if (this.state.currentPage === "userSettings") {
       template = Handlebars.compile(Pages.UserSettingsPage);
+      this.appElement.innerHTML = template();
+    } else if (this.state.currentPage === "chats") {
+      template = Handlebars.compile(Pages.ChatsPage);
       this.appElement.innerHTML = template();
     }
   }
