@@ -5,28 +5,31 @@
     <div class="userSettings__info">
       <div class="userSettings__infoBlock">
         <div class="userSettings__row">
-          <span class="userSettings__label">Почта</span>
-          <span class="userSettings__value">pochta@yandex.ru</span>
+          <label for="email" class="userSettings__label">Почта</label>
+          {{> Input id="email" type="text" name="email" placeholder="pochta@yandex.ru" class="userSettings__value"}}
         </div>
         <div class="userSettings__row">
-          <span class="userSettings__label">Логин</span>
-          <span class="userSettings__value">bryusbryusov</span>
+          <label for="login" class="userSettings__label">Логин</label>
+          {{> Input id="login" type="text" name="login" placeholder="bryusbryusov" class="userSettings__value"}}
         </div>
         <div class="userSettings__row">
-          <span class="userSettings__label">Имя</span>
-          <span class="userSettings__value">Брюс</span>
+          <label for="first_name" class="userSettings__label">Имя</label>
+          {{> Input id="first_name" type="text" name="first_name" placeholder="Брюс" class="userSettings__value"}}
         </div>
         <div class="userSettings__row">
-          <span class="userSettings__label">Фамилия</span>
-          <span class="userSettings__value">Брюсов</span>
+          <label for="second_name" class="userSettings__label">Фамилия</label>
+          {{> Input id="second_name" type="text" name="second_name" placeholder="Брюсов" class="userSettings__value"}}
         </div>
         <div class="userSettings__row">
-          <span class="userSettings__label">Имя в чате</span>
-          <span class="userSettings__value">Брюс</span>
+          <label for="display_name" class="userSettings__label">Имя в чате</label>
+          {{> Input id="display_name" type="text" name="display_name" placeholder="Брюс" class="userSettings__value"}}
         </div>
         <div class="userSettings__row">
-          <span class="userSettings__label">Телефон</span>
-          <span class="userSettings__value">+7 (900) 123-45-67</span>
+          <label for="phone" class="userSettings__label">Телефон</label>
+          {{> Input id="phone" type="text" name="phone" placeholder="+7 (900) 123-45-67" class="userSettings__value"}}
+        </div>
+        <div class="userSettings__saveBtnContainer">
+          {{> Button text="Сохранить" class="userSettings__saveBtn"}}
         </div>
       </div>
       <div class="userSettings__actions">

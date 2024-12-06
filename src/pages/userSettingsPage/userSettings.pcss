@@ -39,14 +39,34 @@
   }
   &__label {
     color: #1e1e1e;
-    flex: 1;
+    flex: 0 0 auto;
     text-align: left;
   }
   &__value {
     color: #999999;
-    flex: 1;
     text-align: right;
+    border: none;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
   }
+  &__saveBtnContainer {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+  }
+  &__saveBtn {
+    width: 100%;
+    max-width: 280px;
+    background-color: #3369f3;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+  }
+
   &__actions {
     display: flex;
     flex-direction: column;
