@@ -11,12 +11,40 @@ Handlebars.registerPartial("Input", Input);
 Handlebars.registerPartial("Link", Link);
 
 export default class App {
+  changePage(page) {
+    this.state.currentPage = page;
+    history.pushState({ page }, "", `/${page}`);
+    this.render();
+  }
+
+  handlePopState(event) {
+    const page = event.state ? event.state.page : "login";
+    this.state.currentPage = page;
+    this.render();
+  }
+
+  initializePage() {
+    const path = window.location.pathname.slice(1);
+    const validPages = [
+      "login",
+      "register",
+      "notFound",
+      "error",
+      "userSettings",
+      "chats",
+    ];
+    this.state.currentPage = validPages.includes(path) ? path : "login";
+    this.render();
+  }
+
   constructor() {
     this.state = {
       currentPage: "login",
       anyArray: [],
     };
     this.appElement = document.getElementById("app");
+    window.addEventListener("popstate", this.handlePopState.bind(this));
+    this.initializePage();
   }
 
   render() {
@@ -51,10 +79,5 @@ export default class App {
         this.changePage(e.target.dataset.page);
       });
     });
-  }
-
-  changePage(page) {
-    this.state.currentPage = page;
-    this.render();
   }
 }
