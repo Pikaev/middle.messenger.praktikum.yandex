@@ -3,7 +3,7 @@
     <span class="material-icons userSettings__avatar">face</span>
     <h1 class="userSettings__title">Брюс</h1>
     <div class="userSettings__info">
-      <div class="userSettings__infoBlock">
+      <form class="userSettings__infoBlock" action="" method="get">
         <div class="userSettings__row">
           <label for="email" class="userSettings__label">Почта</label>
           {{> Input id="email" type="text" name="email" placeholder="pochta@yandex.ru" class="userSettings__value"}}
@@ -31,7 +31,7 @@
         <div class="userSettings__saveBtnContainer">
           {{> Button text="Сохранить" class="userSettings__saveBtn"}}
         </div>
-      </div>
+      </form>
       <div class="userSettings__actions">
         <div class="userSettings__actionEdit">
           {{> Link
