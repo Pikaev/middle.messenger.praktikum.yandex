@@ -40,5 +40,21 @@ export default class App {
       template = Handlebars.compile(Pages.ChatsPage);
       this.appElement.innerHTML = template();
     }
+    this.attachEventListeners();
+  }
+
+  attachEventListeners() {
+    const links = document.querySelectorAll(".navLink");
+    links.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        this.changePage(e.target.dataset.page);
+      });
+    });
+  }
+
+  changePage(page) {
+    this.state.currentPage = page;
+    this.render();
   }
 }
