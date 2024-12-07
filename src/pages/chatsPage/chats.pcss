@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: #fbfbfb;
+    background-color: var(--color-background-light);
     width: 310px;
     padding-top: 20px;
     &Header {
@@ -25,7 +25,7 @@
       align-self: flex-end;
       margin-bottom: 20px;
       &Link {
-        color: #999999;
+        color: var(--color-text-light);
         font-size: 12px;
         text-decoration: none;
       }
@@ -33,11 +33,11 @@
     &Search {
       width: 100%;
       padding-bottom: 12px;
-      border-bottom: 1px solid #eaeaea;
+      border-bottom: 1px solid var(--color-accent-grey);
       &Input {
         width: 100%;
         border: none;
-        background-color: #efefef;
+        background-color: var(--color-accent-grey);
         border-radius: 5px;
         padding: 10px;
         text-align: center;
@@ -64,12 +64,12 @@
       align-items: center;
       padding: 12px 0;
       gap: 12px;
-      border-bottom: 1px solid #eaeaea;
+      border-bottom: 1px solid var(--color-accent-grey);
       position: relative;
       flex-grow: 1;
     }
     &:hover {
-      background-color: #e4edfd;
+      background-color: var(--color-accent-sky);
     }
     &::before {
       content: "12:34";
@@ -79,7 +79,7 @@
       display: block;
       font-size: 9px;
       line-height: 18px;
-      color: #999999;
+      color: var(--color-text-light);
     }
     &::after {
       content: "2";
@@ -92,8 +92,8 @@
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      background-color: #3369f3;
-      color: #ffffff;
+      background-color: var(--color-accent-blue);
+      color: var(--color-white);
       font-size: 11px;
     }
     &Avatar {
@@ -103,7 +103,7 @@
       width: 47px;
       height: 47px;
       border-radius: 50%;
-      background-color: #efefef;
+      background-color: var(--color-accent-grey);
       &Icon {
         font-size: 34px;
       }
@@ -119,7 +119,7 @@
     }
     &Message {
       font-size: 12px;
-      color: #999999;
+      color: var(--color-text-light);
     }
   }
 
@@ -128,10 +128,10 @@
     align-items: center;
     justify-content: center;
     flex-grow: 1;
-    background-color: #ffffff;
+    background-color: var(--color-white);
     &Info {
       font-size: 12px;
-      color: #999999;
+      color: var(--color-text-light);
     }
   }
 }

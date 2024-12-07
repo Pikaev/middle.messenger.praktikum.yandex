@@ -7,14 +7,14 @@
   padding: 0 20px;
 
   &__avatar {
-    font-size: 130px; /* Устанавливает размер иконки */
+    font-size: 130px;
     width: 130px;
     height: 130px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f0f0f0;
+    background-color: var(--color-accent-grey);
     margin-bottom: 10px;
   }
   &__title {
@@ -34,16 +34,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: 1px solid var(--color-accent-grey);
     padding: 10px 0;
   }
   &__label {
-    color: #1e1e1e;
+    color: var(--color-text);
     flex: 0 0 auto;
     text-align: left;
   }
   &__value {
-    color: #999999;
+    color: var(--color-text-light);
     text-align: right;
     border: none;
     cursor: pointer;
@@ -59,8 +59,8 @@
   &__saveBtn {
     width: 100%;
     max-width: 280px;
-    background-color: #3369f3;
-    color: #fff;
+    background-color: var(--color-accent-blue);
+    color: var(--color-white);
     border: none;
     border-radius: 8px;
     padding: 12px;
@@ -73,16 +73,16 @@
   }
   &__actionEdit {
     padding: 10px 0;
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: 1px solid var(--color-accent-grey);
     &Link {
       text-decoration: none;
-      color: #3369f3;
+      color: var(--color-accent-blue);
     }
   }
   &__actionLogout {
     padding: 10px 0;
     &Btn {
-      color: #ff0000;
+      color: var(--color-alert);
       border: none;
       background: none;
       padding: 0;
