@@ -2,11 +2,11 @@
   <section class="chats">
     <div class="chats__contacts">
       <div class="chats__contactsHeader">
-        <div class="chats__contactsMyProfile"> 
+        <div class="chats__contactsMyProfile">
           {{> Link text="Профиль >" href="/profile" data-page="userSettings" class="chats__contactsMyProfileLink navLink"}}
         </div>
         <form class="chats__contactsSearch" action="" method="get">
-          {{> Input id="search" type="text" placeholder="Поиск" class="chats__contactsSearchInput"}}
+          {{> Input id="search" type="text" placeholder="Поиск" name="search" class="chats__contactsSearchInput"}}
         </form>
       </div>
       <ul class="chats__contactsList">
