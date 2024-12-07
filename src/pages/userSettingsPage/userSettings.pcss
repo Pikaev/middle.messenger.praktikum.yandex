@@ -1,0 +1,92 @@
+.userSettings {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 20px;
+
+  &__avatar {
+    font-size: 130px; /* Устанавливает размер иконки */
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    margin-bottom: 10px;
+  }
+  &__title {
+    font-size: 16px;
+    margin-bottom: 60px;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    max-width: 510px;
+    width: 100%;
+  }
+  &__infoBlock {
+    margin-bottom: 60px;
+  }
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eaeaea;
+    padding: 10px 0;
+  }
+  &__label {
+    color: #1e1e1e;
+    flex: 0 0 auto;
+    text-align: left;
+  }
+  &__value {
+    color: #999999;
+    text-align: right;
+    border: none;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+  }
+  &__saveBtnContainer {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+  }
+  &__saveBtn {
+    width: 100%;
+    max-width: 280px;
+    background-color: #3369f3;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+  }
+  &__actionEdit {
+    padding: 10px 0;
+    border-bottom: 1px solid #eaeaea;
+    &Link {
+      text-decoration: none;
+      color: #3369f3;
+    }
+  }
+  &__actionLogout {
+    padding: 10px 0;
+    &Btn {
+      color: #ff0000;
+      border: none;
+      background: none;
+      padding: 0;
+      cursor: pointer;
+    }
+  }
+}
