@@ -1,0 +1,40 @@
+<main class="app">
+  <section class="userSettings">
+    <span class="material-icons userSettings__avatar">face</span>
+    <h1 class="userSettings__title">Брюс</h1>
+    <div class="userSettings__info">
+      <form class="userSettings__infoBlock" action="" method="get">
+        {{#each userSettingsFields}}
+          <div class="userSettings__row">
+            <label for="{{id}}" class="userSettings__label">{{label}}</label>
+            {{> Input id=id type=type name=name placeholder=placeholder class="userSettings__value"}}
+          </div>
+        {{/each}}
+        <div class="userSettings__saveBtnContainer">
+          {{> Button text="Сохранить" class="userSettings__saveBtn"}}
+        </div>
+      </form>
+      <div class="userSettings__actions">
+        <div class="userSettings__actionEdit">
+          {{> Link
+            href="/"
+            text="Изменить данные"
+            class="userSettings__actionEditLink"
+            data-page="userSettings"
+          }}
+        </div>
+        <div class="userSettings__actionEdit">
+          {{> Link
+            href="/"
+            text="Изменить пароль"
+            class="userSettings__actionEditLink"
+            data-page="userSettings"
+          }}
+        </div>
+        <div class="userSettings__actionLogout">
+          {{> Button text="Выйти" class="userSettings__actionLogoutBtn navLink" data-page="login"}}
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

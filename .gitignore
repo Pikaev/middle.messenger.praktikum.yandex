@@ -1,0 +1,4 @@
+# Node artifact files
+dist/
+node_modules/
+.vite/

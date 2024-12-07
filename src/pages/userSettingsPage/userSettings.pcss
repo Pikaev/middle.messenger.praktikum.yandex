@@ -1,0 +1,92 @@
+.userSettings {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 20px;
+
+  &__avatar {
+    font-size: 130px;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-accent-grey);
+    margin-bottom: 10px;
+  }
+  &__title {
+    font-size: 16px;
+    margin-bottom: 60px;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    max-width: 510px;
+    width: 100%;
+  }
+  &__infoBlock {
+    margin-bottom: 60px;
+  }
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-accent-grey);
+    padding: 10px 0;
+  }
+  &__label {
+    color: var(--color-text);
+    flex: 0 0 auto;
+    text-align: left;
+  }
+  &__value {
+    color: var(--color-text-light);
+    text-align: right;
+    border: none;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+  }
+  &__saveBtnContainer {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+  }
+  &__saveBtn {
+    width: 100%;
+    max-width: 280px;
+    background-color: var(--color-accent-blue);
+    color: var(--color-white);
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+  }
+  &__actionEdit {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-accent-grey);
+    &Link {
+      text-decoration: none;
+      color: var(--color-accent-blue);
+    }
+  }
+  &__actionLogout {
+    padding: 10px 0;
+    &Btn {
+      color: var(--color-alert);
+      border: none;
+      background: none;
+      padding: 0;
+      cursor: pointer;
+    }
+  }
+}

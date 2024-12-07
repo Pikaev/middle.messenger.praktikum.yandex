@@ -1,0 +1,41 @@
+<main class="app">
+  <section class="auth">
+    <div class="auth__container">
+      <h1 class="auth__title">Регистрация</h1>
+      <form class="auth__form" action="" method="get">
+        <div class="auth__formItems">
+          <div class="auth__formItem">
+            <label for="email" class="auth__formItemLabel">Почта</label>
+            {{> Input type="text" name="email" placeholder="Email" class="auth__formItemInput" id="email"}}
+          </div>
+          <div class="auth__formItem">
+            <label for="login" class="auth__formItemLabel">Логин</label>
+            {{> Input type="text" name="login" placeholder="Login" class="auth__formItemInput" id="login"}}
+          </div>
+          <div class="auth__formItem">
+            <label for="first_name" class="auth__formItemLabel">Имя</label>
+            {{> Input type="text" name="first_name" placeholder="First name" class="auth__formItemInput" id="first_name"}}
+          </div>
+          <div class="auth__formItem">
+            <label for="second_name" class="auth__formItemLabel">Фамилия</label>
+            {{> Input type="text" name="second_name" placeholder="Second name" class="auth__formItemInput" id="second_name"}}
+          </div>
+          <div class="auth__formItem">
+            <label for="phone" class="auth__formItemLabel">Телефон</label>
+            {{> Input type="text" name="phone" placeholder="Phone" class="auth__formItemInput" id="phone"}}
+          </div>
+          <div class="auth__formItem">
+            <label for="password" class="auth__formItemLabel">Пароль</label>
+            {{> Input type="password" name="password" placeholder="Password" class="auth__formItemInput" id="password"}}
+          </div>
+          <div class="auth__formItem">
+            <label for="password_confirm" class="auth__formItemLabel">Пароль (ещё раз)</label>
+            {{> Input type="password" name="password_confirm" placeholder="Password" class="auth__formItemInput" id="password_confirm"}}
+          </div>
+        </div>
+        {{> Button text="Зарегистрироваться" id="register-button" class="auth__button"}}
+        {{> Link text="Войти" href="/login" data-page="login" class="auth__link navLink"}}
+      </form>
+    </div>
+  </section>
+</main>
