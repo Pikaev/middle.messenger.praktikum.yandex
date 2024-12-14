@@ -1,0 +1,26 @@
+{
+  "name": "messenger",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.10.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "vite build && node server.cjs",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.47",
+    "postcss-nested": "^7.0.2",
+    "postcss-preset-env": "^9.6.0",
+    "vite": "^5.1.8"
+  },
+  "dependencies": {
+    "express": "^4.20.0",
+    "handlebars": "^4.7.7"
+  }
+}
