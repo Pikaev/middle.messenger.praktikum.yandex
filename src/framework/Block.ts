@@ -1,15 +1,25 @@
 //@ts-nocheck
 import EventBus from "./EventBus";
 import Handlebars from "handlebars";
+
 export default class Block {
+  // Свойства класса
+  _element = null;
+  _id = Math.floor(100000 + Math.random() * 900000);
+  props;
+  children;
+  lists;
+  eventBus;
+
+  // События жизненного цикла
   static EVENTS = {
     INIT: "init",
     FLOW_CDM: "flow:component-did-mount",
     FLOW_CDU: "flow:component-did-update",
     FLOW_RENDER: "flow:render",
   };
-  _element = null;
-  _id = Math.floor(100000 + Math.random() * 900000);
+
+  // Конструктор
   constructor(propsWithChildren = {}) {
     const eventBus = new EventBus();
     const { props, children, lists } =
@@ -21,31 +31,44 @@ export default class Block {
     this._registerEvents(eventBus);
     eventBus.emit(Block.EVENTS.INIT);
   }
-  _addEvents() {
-    const { events = {} } = this.props;
-    Object.keys(events).forEach((eventName) => {
-      this._element.addEventListener(eventName, events[eventName]);
-    });
-  }
+
+  // Методы жизненного цикла
+
+  /**
+   * Регистрация событий жизненного цикла
+   */
   _registerEvents(eventBus) {
     eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
   }
+
+  /**
+   * Инициализация компонента
+   */
   init() {
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
+
+  /**
+   * Логика после монтирования компонента
+   */
   _componentDidMount() {
     this.componentDidMount();
     Object.values(this.children).forEach((child) => {
       child.dispatchComponentDidMount();
     });
   }
+
+  /**
+   * Переопределяемый метод для логики после монтирования
+   */
   componentDidMount(oldProps) {}
-  dispatchComponentDidMount() {
-    this.eventBus().emit(Block.EVENTS.FLOW_CDM);
-  }
+
+  /**
+   * Логика после обновления компонента
+   */
   _componentDidUpdate(oldProps, newProps) {
     const response = this.componentDidUpdate(oldProps, newProps);
     if (!response) {
@@ -53,39 +76,17 @@ export default class Block {
     }
     this._render();
   }
+
+  /**
+   * Переопределяемый метод для логики после обновления
+   */
   componentDidUpdate(oldProps, newProps) {
     return true;
   }
-  _getChildrenPropsAndProps(propsAndChildren) {
-    const children = {};
-    const props = {};
-    const lists = {};
-    Object.entries(propsAndChildren).forEach(([key, value]) => {
-      if (value instanceof Block) {
-        children[key] = value;
-      } else if (Array.isArray(value)) {
-        lists[key] = value;
-      } else {
-        props[key] = value;
-      }
-    });
-    return { children, props, lists };
-  }
-  addAttributes() {
-    const { attr = {} } = this.props;
-    Object.entries(attr).forEach(([key, value]) => {
-      this._element.setAttribute(key, value);
-    });
-  }
-  setProps = (nextProps) => {
-    if (!nextProps) {
-      return;
-    }
-    Object.assign(this.props, nextProps);
-  };
-  get element() {
-    return this._element;
-  }
+
+  /**
+   * Логика рендеринга компонента
+   */
   _render() {
     console.log("Render");
     const propsAndStubs = { ...this.props };
@@ -98,7 +99,7 @@ export default class Block {
     });
     const fragment = this._createDocumentElement("template");
     fragment.innerHTML = Handlebars.compile(this.render())(propsAndStubs);
-    //comment if you want to see
+    // Замена заглушек на содержимое детей
     Object.values(this.children).forEach((child) => {
       const stub = fragment.content.querySelector(`[data-id="${child._id}"]`);
       stub.replaceWith(child.getContent());
@@ -123,10 +124,17 @@ export default class Block {
     this._addEvents();
     this.addAttributes();
   }
+
+  /**
+   * Переопределяемый метод для предоставления шаблона компонента
+   */
   render() {}
-  getContent() {
-    return this.element;
-  }
+
+  // Методы управления свойствами
+
+  /**
+   * Создание прокси для свойств
+   */
   _makePropsProxy(props) {
     const self = this;
     return new Proxy(props, {
@@ -145,13 +153,94 @@ export default class Block {
       },
     });
   }
+
+  /**
+   * Обновление свойств компонента
+   */
+  setProps = (nextProps) => {
+    if (!nextProps) {
+      return;
+    }
+    Object.assign(this.props, nextProps);
+  };
+
+  // Методы управления DOM
+
+  /**
+   * Добавление событий к элементу
+   */
+  _addEvents() {
+    const { events = {} } = this.props;
+    Object.keys(events).forEach((eventName) => {
+      this._element.addEventListener(eventName, events[eventName]);
+    });
+  }
+
+  /**
+   * Добавление атрибутов к элементу
+   */
+  addAttributes() {
+    const { attr = {} } = this.props;
+    Object.entries(attr).forEach(([key, value]) => {
+      this._element.setAttribute(key, value);
+    });
+  }
+
+  /**
+   * Создание нового элемента документа
+   */
   _createDocumentElement(tagName) {
     return document.createElement(tagName);
   }
+
+  // Методы отображения
+
+  /**
+   * Показать элемент
+   */
   show() {
     this.getContent().style.display = "block";
   }
+
+  /**
+   * Скрыть элемент
+   */
   hide() {
     this.getContent().style.display = "none";
+  }
+
+  // Вспомогательные методы
+
+  /**
+   * Разделение свойств и детей
+   */
+  _getChildrenPropsAndProps(propsAndChildren) {
+    const children = {};
+    const props = {};
+    const lists = {};
+    Object.entries(propsAndChildren).forEach(([key, value]) => {
+      if (value instanceof Block) {
+        children[key] = value;
+      } else if (Array.isArray(value)) {
+        lists[key] = value;
+      } else {
+        props[key] = value;
+      }
+    });
+    return { children, props, lists };
+  }
+
+  /**
+   * Получение содержимого элемента
+   */
+  getContent() {
+    return this.element;
+  }
+
+  /**
+   * Получение элемента
+   */
+  get element() {
+    return this._element;
   }
 }
