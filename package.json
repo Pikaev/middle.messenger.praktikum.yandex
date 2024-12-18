@@ -15,7 +15,9 @@
     "dev": "vite",
     "build": "vite build",
     "start": "vite build && node server.cjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^7.18.0",
