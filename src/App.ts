@@ -1,15 +1,7 @@
-import Handlebars from 'handlebars'
-import * as Pages from './pages'
+//@ts-nocheck
+import * as Pages from './pages/index.js'
 import { userSettingsFields } from './mockData.js'
-
-// Register partials
-import Button from './components/Button.js'
-import Input from './components/Input.js'
-import Link from './components/Link.js'
-
-Handlebars.registerPartial('Button', Button)
-Handlebars.registerPartial('Input', Input)
-Handlebars.registerPartial('Link', Link)
+import { Login } from './pages/authPage/login.ts'
 
 export default class App {
   changePage(page) {
@@ -49,19 +41,25 @@ export default class App {
   }
 
   render() {
-    const pageTemplates = {
-      login: Pages.LoginPage,
-      register: Pages.RegisterPage,
-      notFound: Pages.NotFoundPage,
-      error: Pages.ErrorPage,
-      userSettings: Pages.UserSettingsPage,
-      chats: Pages.ChatsPage,
+    // const pageTemplates = {
+    //   login: Pages.LoginPage,
+    //   register: Pages.RegisterPage,
+    //   notFound: Pages.NotFoundPage,
+    //   error: Pages.ErrorPage,
+    //   userSettings: Pages.UserSettingsPage,
+    //   chats: Pages.ChatsPage,
+    // };
+    // const templateElement =
+    //   pageTemplates[this.state.currentPage] || Pages.NotFoundPage;
+    // const template = Handlebars.compile(templateElement);
+    // this.appElement.innerHTML = template({ userSettingsFields });
+    // this.attachEventListeners();
+
+    if (this.state.currentPage === 'login') {
+      const loginPage = new Login()
+      console.log('loginPage: ', loginPage.getContent())
+      this.appElement.replaceWith(loginPage.getContent())
     }
-    const templateElement =
-      pageTemplates[this.state.currentPage] || Pages.NotFoundPage
-    const template = Handlebars.compile(templateElement)
-    this.appElement.innerHTML = template({ userSettingsFields })
-    this.attachEventListeners()
   }
 
   attachEventListeners() {

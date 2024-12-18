@@ -7,131 +7,146 @@
   width: 100%;
 
   &__contacts {
-    display: flex;
-    flex-direction: column;
     align-items: flex-start;
     background-color: var(--color-background-light);
-    width: 310px;
+    display: flex;
+    flex-direction: column;
     padding-top: 20px;
+    width: 310px;
+
     &Header {
+      align-items: flex-start;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      width: 100%;
       padding: 10px 10px 0;
+      width: 100%;
+
       /* margin-bottom: 20px; */
     }
+
     &MyProfile {
       align-self: flex-end;
       margin-bottom: 20px;
+
       &Link {
         color: var(--color-text-light);
         font-size: 12px;
         text-decoration: none;
       }
     }
+
     &Search {
-      width: 100%;
-      padding-bottom: 12px;
       border-bottom: 1px solid var(--color-accent-grey);
+      padding-bottom: 12px;
+      width: 100%;
+
       &Input {
-        width: 100%;
-        border: none;
         background-color: var(--color-accent-grey);
+        border: none;
         border-radius: 5px;
         padding: 10px;
         text-align: center;
+        width: 100%;
       }
     }
   }
 
   &__contactsList {
-    width: 100%;
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
+    width: 100%;
   }
 
   &__contact {
+    cursor: pointer;
     display: flex;
     padding: 0 10px;
     position: relative;
-    cursor: pointer;
 
     &Wrapper {
+      align-items: center;
+      border-bottom: 1px solid var(--color-accent-grey);
       display: flex;
       flex-direction: row;
-      align-items: center;
-      padding: 12px 0;
-      gap: 12px;
-      border-bottom: 1px solid var(--color-accent-grey);
-      position: relative;
       flex-grow: 1;
+      gap: 12px;
+      padding: 12px 0;
+      position: relative;
     }
+
     &:hover {
       background-color: var(--color-accent-sky);
     }
+
     &::before {
-      content: "12:34";
-      position: absolute;
-      top: 12px;
-      right: 10px;
+      color: var(--color-text-light);
+      content: '12:34';
       display: block;
       font-size: 9px;
       line-height: 18px;
-      color: var(--color-text-light);
-    }
-    &::after {
-      content: "2";
       position: absolute;
-      bottom: 12px;
       right: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background-color: var(--color-accent-blue);
-      color: var(--color-white);
-      font-size: 11px;
+      top: 12px;
     }
-    &Avatar {
-      display: flex;
+
+    &::after {
       align-items: center;
+      background-color: var(--color-accent-blue);
+      border-radius: 50%;
+      bottom: 12px;
+      color: var(--color-white);
+      content: '2';
+      display: flex;
+      font-size: 11px;
+      height: 20px;
+      justify-content: center;
+      position: absolute;
+      right: 10px;
+      width: 20px;
+    }
+
+    &Avatar {
+      align-items: center;
+      background-color: var(--color-accent-grey);
+      border-radius: 50%;
+      display: flex;
+      height: 47px;
       justify-content: center;
       width: 47px;
-      height: 47px;
-      border-radius: 50%;
-      background-color: var(--color-accent-grey);
+
       &Icon {
         font-size: 34px;
       }
     }
+
     &Info {
       display: flex;
       flex-direction: column;
       gap: 4px;
     }
+
     &Name {
       font-size: 13px;
       font-weight: 600;
     }
+
     &Message {
-      font-size: 12px;
       color: var(--color-text-light);
+      font-size: 12px;
     }
   }
 
   &__dialog {
-    display: flex;
     align-items: center;
-    justify-content: center;
-    flex-grow: 1;
     background-color: var(--color-white);
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+
     &Info {
-      font-size: 12px;
       color: var(--color-text-light);
+      font-size: 12px;
     }
   }
 }

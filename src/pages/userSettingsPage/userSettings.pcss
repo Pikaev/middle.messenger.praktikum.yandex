@@ -7,86 +7,99 @@
   padding: 0 20px;
 
   &__avatar {
-    font-size: 130px;
-    width: 130px;
-    height: 130px;
+    align-items: center;
+    background-color: var(--color-accent-grey);
     border-radius: 50%;
     display: flex;
-    align-items: center;
+    font-size: 130px;
+    height: 130px;
     justify-content: center;
-    background-color: var(--color-accent-grey);
     margin-bottom: 10px;
+    width: 130px;
   }
+
   &__title {
     font-size: 16px;
     margin-bottom: 60px;
   }
+
   &__info {
     display: flex;
     flex-direction: column;
     max-width: 510px;
     width: 100%;
   }
+
   &__infoBlock {
     margin-bottom: 60px;
   }
+
   &__row {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--color-accent-grey);
+    display: flex;
+    justify-content: space-between;
     padding: 10px 0;
   }
+
   &__label {
     color: var(--color-text);
     flex: 0 0 auto;
     text-align: left;
   }
+
   &__value {
-    color: var(--color-text-light);
-    text-align: right;
     border: none;
+    color: var(--color-text-light);
     cursor: pointer;
+    text-align: right;
+
     &:focus {
       outline: none;
     }
   }
+
   &__saveBtnContainer {
-    margin-top: 60px;
     display: flex;
     justify-content: center;
+    margin-top: 60px;
   }
+
   &__saveBtn {
-    width: 100%;
-    max-width: 280px;
     background-color: var(--color-accent-blue);
-    color: var(--color-white);
     border: none;
     border-radius: 8px;
-    padding: 12px;
+    color: var(--color-white);
     cursor: pointer;
+    max-width: 280px;
+    padding: 12px;
+    width: 100%;
   }
 
   &__actions {
     display: flex;
     flex-direction: column;
   }
+
   &__actionEdit {
-    padding: 10px 0;
     border-bottom: 1px solid var(--color-accent-grey);
+    padding: 10px 0;
+
     &Link {
-      text-decoration: none;
       color: var(--color-accent-blue);
+      text-decoration: none;
     }
   }
+
   &__actionLogout {
     padding: 10px 0;
+
     &Btn {
-      color: var(--color-alert);
-      border: none;
       background: none;
-      padding: 0;
+      border: none;
+      color: var(--color-alert);
       cursor: pointer;
+      padding: 0;
     }
   }
 }
