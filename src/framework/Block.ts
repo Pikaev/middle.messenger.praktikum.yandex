@@ -1,22 +1,27 @@
 //@ts-nocheck
-import EventBus from "./EventBus";
-import Handlebars from "handlebars";
+import EventBus from './EventBus';
+import Handlebars from 'handlebars';
 
 export default class Block {
   // Свойства класса
   _element = null;
+
   _id = Math.floor(100000 + Math.random() * 900000);
+
   props;
+
   children;
+
   lists;
+
   eventBus;
 
   // События жизненного цикла
   static EVENTS = {
-    INIT: "init",
-    FLOW_CDM: "flow:component-did-mount",
-    FLOW_CDU: "flow:component-did-update",
-    FLOW_RENDER: "flow:render",
+    INIT: 'init',
+    FLOW_CDM: 'flow:component-did-mount',
+    FLOW_CDU: 'flow:component-did-update',
+    FLOW_RENDER: 'flow:render',
   };
 
   // Конструктор
@@ -88,7 +93,7 @@ export default class Block {
    * Логика рендеринга компонента
    */
   _render() {
-    console.log("Render");
+    console.log('Render');
     const propsAndStubs = { ...this.props };
     const _tmpId = Math.floor(100000 + Math.random() * 900000);
     Object.entries(this.children).forEach(([key, child]) => {
@@ -97,7 +102,7 @@ export default class Block {
     Object.entries(this.lists).forEach(([key, child]) => {
       propsAndStubs[key] = `<div data-id="__l_${_tmpId}"></div>`;
     });
-    const fragment = this._createDocumentElement("template");
+    const fragment = this._createDocumentElement('template');
     fragment.innerHTML = Handlebars.compile(this.render())(propsAndStubs);
     // Замена заглушек на содержимое детей
     Object.values(this.children).forEach((child) => {
@@ -105,7 +110,7 @@ export default class Block {
       stub.replaceWith(child.getContent());
     });
     Object.entries(this.lists).forEach(([key, child]) => {
-      const listCont = this._createDocumentElement("template");
+      const listCont = this._createDocumentElement('template');
       child.forEach((item) => {
         if (item instanceof Block) {
           listCont.content.append(item.getContent());
@@ -140,7 +145,7 @@ export default class Block {
     return new Proxy(props, {
       get(target, prop) {
         const value = target[prop];
-        return typeof value === "function" ? value.bind(target) : value;
+        return typeof value === 'function' ? value.bind(target) : value;
       },
       set(target, prop, value) {
         const oldTarget = { ...target };
@@ -149,7 +154,7 @@ export default class Block {
         return true;
       },
       deleteProperty() {
-        throw new Error("No access");
+        throw new Error('No access');
       },
     });
   }
@@ -199,14 +204,14 @@ export default class Block {
    * Показать элемент
    */
   show() {
-    this.getContent().style.display = "block";
+    this.getContent().style.display = 'block';
   }
 
   /**
    * Скрыть элемент
    */
   hide() {
-    this.getContent().style.display = "none";
+    this.getContent().style.display = 'none';
   }
 
   // Вспомогательные методы

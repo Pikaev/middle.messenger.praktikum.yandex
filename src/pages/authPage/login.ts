@@ -1,18 +1,18 @@
 //@ts-nocheck
-import Block from "../../framework/Block";
-import { Input } from "../../components/input/input";
+import Block from '../../framework/Block';
+import { Input } from '../../components/input/input';
 
 export class Login extends Block {
   constructor() {
     super({
       InputCreate: new Input({
-        type: "text",
-        name: "login",
-        placeholder: "Username",
-        class: "auth__formItemInput",
-        id: "login",
+        type: 'text',
+        name: 'login',
+        placeholder: 'Username',
+        class: 'auth__formItemInput',
+        id: 'login',
         onClick: (event) => {
-          console.log("CLICK to input");
+          console.log('CLICK to input');
           event.preventDefault();
           event.stopPropagation();
         },

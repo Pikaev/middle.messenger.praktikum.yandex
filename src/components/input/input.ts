@@ -1,5 +1,5 @@
 //@ts-nocheck
-import Block from "../../framework/Block";
+import Block from '../../framework/Block';
 
 export class Input extends Block {
   constructor(props: any) {

@@ -1,10 +1,9 @@
-@import "./colors.pcss";
-
-@import "../pages/authPage/auth.pcss";
-@import "../pages/chatsPage/chats.pcss";
-@import "../pages/errorPage/error.pcss";
-@import "../pages/notFoundPage/notFound.pcss";
-@import "../pages/userSettingsPage/userSettings.pcss";
+@import url("./colors.pcss");
+@import url("../pages/authPage/auth.pcss");
+@import url("../pages/chatsPage/chats.pcss");
+@import url("../pages/errorPage/error.pcss");
+@import url("../pages/notFoundPage/notFound.pcss");
+@import url("../pages/userSettingsPage/userSettings.pcss");
 
 *,
 *::before,
@@ -13,9 +12,9 @@
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  color: var(--color-text);
+  font-family: Inter, sans-serif;
   font-size: 13px;
   font-weight: 400;
   line-height: 1.23;
-  color: var(--color-text);
 }
