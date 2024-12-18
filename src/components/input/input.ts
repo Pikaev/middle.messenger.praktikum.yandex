@@ -1,5 +1,5 @@
 //@ts-nocheck
-import Block from '../../framework/Block';
+import Block from '../../framework/Block'
 
 export class Input extends Block {
   constructor(props: any) {
@@ -8,12 +8,12 @@ export class Input extends Block {
       events: {
         click: (e) => props.onClick(e),
       },
-    });
+    })
   }
 
   render() {
     return `
       <input type="{{type}}" name="{{name}}" placeholder="{{placeholder}}" class="{{class}}" id="{{id}}" value="{{value}}" />
-    `;
+    `
   }
 }

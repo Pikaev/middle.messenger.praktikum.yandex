@@ -1,6 +1,6 @@
 //@ts-nocheck
-import Block from '../../framework/Block';
-import { Input } from '../../components/input/input';
+import Block from '../../framework/Block'
+import { Input } from '../../components/input/input'
 
 export class Login extends Block {
   constructor() {
@@ -12,12 +12,12 @@ export class Login extends Block {
         class: 'auth__formItemInput',
         id: 'login',
         onClick: (event) => {
-          console.log('CLICK to input');
-          event.preventDefault();
-          event.stopPropagation();
+          console.log('CLICK to input')
+          event.preventDefault()
+          event.stopPropagation()
         },
       }),
-    });
+    })
   }
 
   render() {
@@ -43,6 +43,6 @@ export class Login extends Block {
           </div>
         </section>
       </main>
-    `;
+    `
   }
 }

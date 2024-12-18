@@ -1,25 +1,26 @@
 module.exports = {
   root: true,
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2020,
-    sourceType: "module",
-    project: "./tsconfig.json",
+    sourceType: 'module',
+    project: './tsconfig.json',
     tsconfigRootDir: __dirname,
   },
   overrides: [
     {
-      files: ["*.js", "*.cjs"],
+      files: ['*.js', '*.cjs'],
       parserOptions: {
-        project: "./tsconfig.node.json",
+        project: './tsconfig.node.json',
       },
     },
   ],
-  plugins: ["@typescript-eslint"],
+  plugins: ['@typescript-eslint'],
   extends: [
-    "airbnb-typescript",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    'airbnb-typescript',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:prettier/recommended',
   ],
   env: {
     browser: true,
@@ -27,15 +28,17 @@ module.exports = {
     node: true,
   },
   rules: {
-    "react/jsx-filename-extension": "off",
-    "import/extensions": "off",
-    "import/no-extraneous-dependencies": "off",
-    "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-unsafe-assignment": "off",
-    "@typescript-eslint/no-unsafe-argument": "off",
-    "@typescript-eslint/no-unsafe-return": "off",
-    "@typescript-eslint/no-unsafe-call": "off",
-    "@typescript-eslint/no-unsafe-member-access": "off",
-    // "@typescript-eslint/ban-ts-comment": "off",
+    'react/jsx-filename-extension': 'off',
+    'import/extensions': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
+    '@typescript-eslint/no-unsafe-argument': 'off',
+    '@typescript-eslint/no-unsafe-return': 'off',
+    '@typescript-eslint/no-unsafe-call': 'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
+    // TODO: enable
+    '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/semi': ['off'],
   },
-};
+}
