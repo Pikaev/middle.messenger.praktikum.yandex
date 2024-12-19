@@ -13,7 +13,10 @@ export class Input extends Block {
 
   render() {
     return `
+    <div class="auth__formItem">
+      <label for="{{id}}" class="auth__formItemLabel">{{label}}</label>
       <input type="{{type}}" name="{{name}}" placeholder="{{placeholder}}" class="{{class}}" id="{{id}}" value="{{value}}" />
+    </div>
     `
   }
 }
