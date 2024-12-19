@@ -1,16 +1,25 @@
-//@ts-nocheck
-import * as Pages from './pages/index.js'
-import { userSettingsFields } from './mockData.js'
-import { Login } from './pages/authPage/login.ts'
+import { Login } from './pages/authPage/login'
+
+interface IApp {
+  currentPage: string
+}
+
+interface IAppElement extends HTMLElement {
+  replaceWith(node: Node): void
+}
 
 export default class App {
-  changePage(page) {
+  private state: IApp
+
+  private appElement: IAppElement | null
+
+  changePage(page: string) {
     this.state.currentPage = page
     history.pushState({ page }, '', `/${page}`)
     this.render()
   }
 
-  handlePopState(event) {
+  handlePopState(event: PopStateEvent) {
     const page = event.state ? event.state.page : 'login'
     this.state.currentPage = page
     this.render()
@@ -33,42 +42,29 @@ export default class App {
   constructor() {
     this.state = {
       currentPage: 'login',
-      anyArray: [],
     }
-    this.appElement = document.getElementById('app')
+    this.appElement = document.getElementById('app') as IAppElement
     window.addEventListener('popstate', this.handlePopState.bind(this))
     this.initializePage()
   }
 
   render() {
-    // const pageTemplates = {
-    //   login: Pages.LoginPage,
-    //   register: Pages.RegisterPage,
-    //   notFound: Pages.NotFoundPage,
-    //   error: Pages.ErrorPage,
-    //   userSettings: Pages.UserSettingsPage,
-    //   chats: Pages.ChatsPage,
-    // };
-    // const templateElement =
-    //   pageTemplates[this.state.currentPage] || Pages.NotFoundPage;
-    // const template = Handlebars.compile(templateElement);
-    // this.appElement.innerHTML = template({ userSettingsFields });
-    // this.attachEventListeners();
-
     if (this.state.currentPage === 'login') {
       const loginPage = new Login()
       console.log('loginPage: ', loginPage.getContent())
-      this.appElement.replaceWith(loginPage.getContent())
+      if (this.appElement) {
+        this.appElement.replaceWith(loginPage.getContent())
+      }
     }
   }
 
-  attachEventListeners() {
-    const links = document.querySelectorAll('.navLink')
-    links.forEach((link) => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault()
-        this.changePage(e.target.dataset.page)
-      })
-    })
-  }
+  // attachEventListeners() {
+  //   const links = document.querySelectorAll('.navLink')
+  //   links.forEach((link) => {
+  //     link.addEventListener('click', (e) => {
+  //       e.preventDefault()
+  //       this.changePage(e.target.dataset.page)
+  //     })
+  //   })
+  // }
 }
