@@ -1,8 +1,9 @@
-//@ts-nocheck
 import Block from '../../framework/Block'
-import { Input } from '../../components/input/input'
+import { Input, IInput } from '../../components/input/input'
 
-const inputsConfig = [
+interface InputConfig extends Omit<IInput, 'events' | 'value' | 'onClick'> {}
+
+const inputsConfig: InputConfig[] = [
   {
     type: 'text',
     name: 'login',
@@ -22,7 +23,7 @@ export class Login extends Block {
   constructor() {
     super({
       Inputs: inputsConfig.map(
-        (item) =>
+        (item: InputConfig) =>
           new Input({
             label: item.label,
             class: 'auth__formItemInput',
@@ -30,7 +31,7 @@ export class Login extends Block {
             name: item.name,
             placeholder: item.placeholder,
             type: item.type,
-            onClick: (event) => {
+            onClick: (event: Event) => {
               console.log('CLICK to input ', item.id)
               event.preventDefault()
               event.stopPropagation()

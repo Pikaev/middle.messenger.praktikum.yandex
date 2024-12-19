@@ -1,17 +1,17 @@
 import Block from '../../framework/Block'
 
-interface IInput {
-  class: string
-  events: {
+export interface IInput {
+  class?: string
+  events?: {
     click: (e: Event) => void
   }
   id: string
-  label: string
+  label?: string
   name: string
   onClick(e: Event): unknown
-  placeholder: string
+  placeholder?: string
   type: string
-  value: string
+  value?: string
 }
 export class Input extends Block {
   constructor(props: IInput) {
