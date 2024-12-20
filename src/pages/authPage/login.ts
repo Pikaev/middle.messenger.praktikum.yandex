@@ -1,6 +1,8 @@
 import Block from '../../framework/Block'
-import { InputField, IInputField } from '@components/molecules/InputField'
 
+import { Button } from '@components/atoms/Button'
+import { InputField, IInputField } from '@components/molecules/InputField'
+import { Link } from '@components/atoms/Link'
 interface InputConfig
   extends Omit<IInputField, 'events' | 'value' | 'onClick'> {}
 
@@ -39,6 +41,30 @@ export class Login extends Block {
             },
           })
       ),
+      Button: new Button({
+        text: 'Войти',
+        class: 'auth__button navLink',
+        dataPage: 'chats',
+        id: 'login',
+        //TODO: добавить проверку на валидность данных
+        // и вывод объекта с данными в консоль
+        onClick: (event: Event) => {
+          console.log('CLICK to button ', event)
+          event.preventDefault()
+          event.stopPropagation()
+        },
+      }),
+      Link: new Link({
+        text: 'Нет аккаунта?',
+        href: '/register',
+        dataPage: 'register',
+        class: 'auth__link navLink',
+        onClick: (event: Event) => {
+          console.log('CLICK to link ', event)
+          event.preventDefault()
+          event.stopPropagation()
+        },
+      }),
     })
   }
 
@@ -54,8 +80,8 @@ export class Login extends Block {
                   {{{ Inputs }}}
                 </div>
               </div>
-              <button type="submit" class="auth__button navLink" data-page="chats">Войти</button>
-              <a href="/register" class="auth__link navLink">Нет аккаунта?</a>
+              {{{ Button }}}
+              {{{ Link }}}
             </form>
           </div>
         </section>
