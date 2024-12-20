@@ -3,7 +3,7 @@ import Block from '../../framework/Block'
 import { Button } from '@components/atoms/Button'
 import { InputAuth, IInputAuth } from '@components/molecules/InputAuth'
 import { Link } from '@components/atoms/Link'
-
+import { Title } from '@components/atoms/Title'
 interface InputConfig
   extends Omit<IInputAuth, 'events' | 'value' | 'onClick'> {}
 
@@ -66,6 +66,10 @@ export class Login extends Block {
           event.stopPropagation()
         },
       }),
+      Title: new Title({
+        title: 'Вход',
+        class: 'auth__title',
+      }),
     })
   }
 
@@ -74,7 +78,7 @@ export class Login extends Block {
       <main class="app">
         <section class="auth">
           <div class="auth__container">
-            <h1 class="auth__title">Вход</h1>
+            {{{ Title }}}
             <form class="auth__form" action="" method="get">
               <div class="auth__formItems">
                 {{{ Inputs }}}
