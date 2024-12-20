@@ -1,5 +1,5 @@
 import Block from '../../framework/Block'
-import { Input, IInput } from '../../components/input/input'
+import { Input, IInput } from '@components/atoms/input'
 
 interface InputConfig extends Omit<IInput, 'events' | 'value' | 'onClick'> {}
 

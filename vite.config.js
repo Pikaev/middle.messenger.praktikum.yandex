@@ -12,4 +12,9 @@ export default defineConfig({
   css: {
     postcss: './postcss.config.js',
   },
+  resolve: {
+    alias: {
+      '@components': resolve(__dirname, 'src/components'),
+    },
+  },
 })
