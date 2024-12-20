@@ -2,13 +2,13 @@ import Block from '../../framework/Block'
 import { Input, IInput } from '@components/atoms/Input'
 import { Label, ILabel } from '@components/atoms/Label'
 
-export interface IInputField extends IInput, ILabel {}
+export interface IInputAuth extends IInput, ILabel {}
 
-export class InputField extends Block {
-  constructor(props: IInputField) {
+export class InputAuth extends Block {
+  constructor(props: IInputAuth) {
     super({
       InputCreate: new Input({
-        class: props.class,
+        class: 'auth__formItemInput',
         id: props.id,
         name: props.name,
         placeholder: props.placeholder,
@@ -16,7 +16,7 @@ export class InputField extends Block {
         onClick: (event: Event) => props.onClick(event),
       }),
       LabelCreate: new Label({
-        class: props.class,
+        class: 'auth__formItemLabel',
         id: props.id,
         label: props.label,
       }),
@@ -25,7 +25,7 @@ export class InputField extends Block {
 
   render() {
     return `
-      <div class="input-field">
+      <div class="auth__formItem">
         {{{ LabelCreate }}}
         {{{ InputCreate }}}
       </div>

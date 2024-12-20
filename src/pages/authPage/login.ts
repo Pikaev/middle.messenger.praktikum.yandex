@@ -1,10 +1,11 @@
 import Block from '../../framework/Block'
 
 import { Button } from '@components/atoms/Button'
-import { InputField, IInputField } from '@components/molecules/InputField'
+import { InputAuth, IInputAuth } from '@components/molecules/InputAuth'
 import { Link } from '@components/atoms/Link'
+
 interface InputConfig
-  extends Omit<IInputField, 'events' | 'value' | 'onClick'> {}
+  extends Omit<IInputAuth, 'events' | 'value' | 'onClick'> {}
 
 const inputsConfig: InputConfig[] = [
   {
@@ -27,7 +28,7 @@ export class Login extends Block {
     super({
       Inputs: inputsConfig.map(
         (item: InputConfig) =>
-          new InputField({
+          new InputAuth({
             label: item.label,
             class: 'auth__formItemInput',
             id: item.id,
@@ -76,9 +77,7 @@ export class Login extends Block {
             <h1 class="auth__title">Вход</h1>
             <form class="auth__form" action="" method="get">
               <div class="auth__formItems">
-                <div class="auth__formItem">
-                  {{{ Inputs }}}
-                </div>
+                {{{ Inputs }}}
               </div>
               {{{ Button }}}
               {{{ Link }}}
