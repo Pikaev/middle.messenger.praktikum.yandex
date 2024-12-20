@@ -1,7 +1,8 @@
 import Block from '../../framework/Block'
-import { Input, IInput } from '@components/atoms/input'
+import { InputField, IInputField } from '@components/molecules/InputField'
 
-interface InputConfig extends Omit<IInput, 'events' | 'value' | 'onClick'> {}
+interface InputConfig
+  extends Omit<IInputField, 'events' | 'value' | 'onClick'> {}
 
 const inputsConfig: InputConfig[] = [
   {
@@ -24,7 +25,7 @@ export class Login extends Block {
     super({
       Inputs: inputsConfig.map(
         (item: InputConfig) =>
-          new Input({
+          new InputField({
             label: item.label,
             class: 'auth__formItemInput',
             id: item.id,

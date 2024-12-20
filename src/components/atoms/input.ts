@@ -6,7 +6,6 @@ export interface IInput {
     click: (e: Event) => void
   }
   id: string
-  label?: string
   name: string
   onClick(e: Event): unknown
   placeholder?: string
@@ -23,13 +22,9 @@ export class Input extends Block {
     })
   }
 
-  //TODO: унифицировать label и input
   render() {
     return `
-    <div class="auth__formItem">
-      <label for="{{id}}" class="auth__formItemLabel">{{label}}</label>
       <input type="{{type}}" name="{{name}}" placeholder="{{placeholder}}" class="{{class}}" id="{{id}}" value="{{value}}" />
-    </div>
     `
   }
 }
