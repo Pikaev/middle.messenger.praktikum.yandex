@@ -1,4 +1,4 @@
-import { Login } from './pages/authPage/login'
+import { Login } from './pages/authPage/LoginPage'
 
 interface IApp {
   currentPage: string
@@ -57,14 +57,4 @@ export default class App {
       }
     }
   }
-
-  // attachEventListeners() {
-  //   const links = document.querySelectorAll('.navLink')
-  //   links.forEach((link) => {
-  //     link.addEventListener('click', (e) => {
-  //       e.preventDefault()
-  //       this.changePage(e.target.dataset.page)
-  //     })
-  //   })
-  // }
 }

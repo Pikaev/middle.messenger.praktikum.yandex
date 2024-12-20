@@ -77,20 +77,16 @@ export class LoginForm extends Block {
 
   render() {
     return `
-      <main class="app">
-        <section class="auth">
-          <div class="auth__container">
-            {{{ Title }}}
-            <form class="auth__form" action="" method="get">
-              <div class="auth__formItems">
-                {{{ Inputs }}}
-              </div>
-              {{{ Button }}}
-              {{{ Link }}}
-            </form>
+      <div class="auth__container">
+        {{{ Title }}}
+        <form class="auth__form" action="" method="get">
+          <div class="auth__formItems">
+            {{{ Inputs }}}
           </div>
-        </section>
-      </main>
+          {{{ Button }}}
+          {{{ Link }}}
+        </form>
+      </div>
     `
   }
 }
